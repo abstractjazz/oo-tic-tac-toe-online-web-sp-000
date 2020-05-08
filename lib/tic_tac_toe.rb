@@ -48,6 +48,18 @@ def valid_move?(index)
   end
 end
 
+def turn
+  puts "Please enter 1-9:"
+  the_string_they_put_in = gets.strip
+  their_desired_position = input_to_index(the_string_they_put_in)
+    if valid_move?(board, their_desired_position)
+    move(board, their_desired_position, current_player(board))
+    display_board(board)
+    else
+    turn(board)
+    end
+end
+
 
 
 
