@@ -12,7 +12,7 @@ WIN_COMBINATIONS = [
   [0,4,8],
 
   ]
-  
+
 def initialize
 @board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", ]
 
