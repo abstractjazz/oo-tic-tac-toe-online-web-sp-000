@@ -60,7 +60,17 @@ def turn
     end
 end
 
-
+def turn_count
+  ef turn_count(board)
+    move_count = 0
+    board.each do |ex_or_o|
+    if ex_or_o == "O" || ex_or_o == "X"
+        move_count += 1
+      end
+    end
+    move_count
+  end
+end
 
 
 
