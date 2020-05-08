@@ -82,33 +82,33 @@ def current_player
       end
     end
 
-  def full?(board)
-  board.all? do |marker|
+  def full?
+  @board.all? do |marker|
     marker == "X" || marker == "O"
 end
 end
 
-def draw?(board)
-  !won?(board) && full?(board)
+def draw?
+  !won? && full?
 end
 
-def over?(board)
-  won?(board) || draw?(board)
+def over?
+  won? || draw?
 end
 
-def winner(board)
-  if win_array = won?(board)
-    board[win_array.first]
+def winner
+  if win_array = won?
+    @board[win_array.first]
   end
 end
 
-def play(board)
-while !over?(board)
-  turn(board)
+def play
+while !over?
+  turn
 end
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
     puts "Cat's Game!"
   end
 end
