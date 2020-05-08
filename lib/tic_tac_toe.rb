@@ -70,6 +70,48 @@ def turn_count
   move_count
 end
 
+def current_player(board)
+    turn_count % 2 == 0 ? "X" : "O"
+  end
+
+  def won?(board)
+    WIN_COMBINATIONS.detect do |combo|
+
+    board[combo[0]] == board[combo[1]] && board[combo[1]] ==  board[combo[2]] && position_taken?(board,combo[0])
+
+      end
+    end
+
+  def full?(board)
+  board.all? do |marker|
+    marker == "X" || marker == "O"
+end
+end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if win_array = won?(board)
+    board[win_array.first]
+  end
+end
+
+def play(board)
+while !over?(board)
+  turn(board)
+end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+  end
+end
 
 
 
