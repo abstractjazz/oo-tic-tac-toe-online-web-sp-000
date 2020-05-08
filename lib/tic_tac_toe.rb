@@ -60,7 +60,7 @@ def turn
     end
 end
 
-def turn_count(board)
+def turn_count
   move_count = 0
   board.each do |ex_or_o|
   if ex_or_o == "O" || ex_or_o == "X"
