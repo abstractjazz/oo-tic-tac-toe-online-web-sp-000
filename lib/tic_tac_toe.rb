@@ -50,11 +50,11 @@ end
 
 def turn
   puts "Please enter 1-9:"
-  the_string_they_put_in = gets.strip
-  their_desired_position = input_to_index(the_string_they_put_in)
-    if valid_move?(board, their_desired_position)
-    move(board, their_desired_position, current_player(board))
-    display_board(board)
+  string_entered = gets.strip
+  desired_position = input_to_index(string_entered)
+    if valid_move?(desired_position)
+    move(desired_position, current_player)
+    display_board
     else
     turn(board)
     end
